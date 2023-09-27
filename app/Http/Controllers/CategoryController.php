@@ -21,7 +21,7 @@ class CategoryController extends Controller
         $categories = Category::all();
 
         return response()->json([
-            'products' => $categories,
+            'categories' => $categories,
             'status' => true
         ], 200);
     }
@@ -57,7 +57,7 @@ class CategoryController extends Controller
     {
         return response()->json([
             'status' => true,
-            'products' => $category
+            'category' => $category
         ], 200);
     }
 

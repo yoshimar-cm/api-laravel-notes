@@ -70,14 +70,11 @@ class NoteController extends Controller
      */
     public function update(UpdateRequestNotes $request, Note $note) : object
     {
+
         $note->slug = Str::slug($request->name);
         $note->name = $request->name;
-        $note->description -> $request->description;
+        $note->description = $request->description;
         $note->save();
-
-        // $category->slug = Str::slug($request->name);
-        // $category->name = $request->name;
-        // $category->save();
 
         return response()->json([
             'note' => $note,
@@ -93,6 +90,10 @@ class NoteController extends Controller
      */
     public function destroy(Note $note)
     {
-        //
+        $note->delete();
+
+        return response()->json([
+            'status' => true
+        ],200);
     }
 }
