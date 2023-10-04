@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\NoteController;
-use App\Http\Controllers\Api\V1\AuthController;
+use App\Http\Controllers\Api\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -32,13 +32,14 @@ Route::group([
 
 Route::group([
     'middleware' => 'api',
-    'prefix' => 'v1/auth'
+    'prefix' => 'auth'
 
 ], function ($router) {
     Route::post('login', [AuthController::class, 'login'])->name('login');
     Route::post('logout', [AuthController::class, 'logout'])->name('logout');
     Route::post('refresh', [AuthController::class, 'refresh'])->name('refresh');
     Route::post('me', [AuthController::class, 'me'])->name('me');
+    Route::post('register', [AuthController::class, 'register'])->name('register');
 });
 
 
