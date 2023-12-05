@@ -30,6 +30,7 @@ Route::group([
 });
 
 
+
 Route::group([
     'middleware' => 'api',
     'prefix' => 'auth'
@@ -41,5 +42,6 @@ Route::group([
     Route::post('me', [AuthController::class, 'me'])->name('me');
     Route::post('register', [AuthController::class, 'register'])->name('register');
 });
+
 
 
